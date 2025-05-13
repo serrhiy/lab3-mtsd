@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-set -e
-
-psql -U marcus -d global_chat <<EOSQL
 create table "users" (
   "id" char(16)
 );
@@ -16,4 +12,3 @@ create table "messages" (
 
 alter table "messages" add constraint "fkMessagesUserIdUsers"
   foreign key ("userId") references "users" ("id");
-EOSQL
