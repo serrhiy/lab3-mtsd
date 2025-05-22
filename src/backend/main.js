@@ -15,7 +15,7 @@ const main = async () => {
       const result = await api[service][method](data);
       const response = { data: result, id, type: 'response' };
       socket.send(JSON.stringify(response));
-
+      
       if (service === 'messages' && method === 'create' && result.success) {
         const message = { data: result.data, type: 'message' };
         const packet = JSON.stringify(message);
